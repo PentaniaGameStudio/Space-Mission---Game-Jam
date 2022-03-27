@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Coin : Bonus
 {
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.gmIns.Bonus(10f, "coin");
+        GameManager.gmIns.GetBonus(10f, BonusType.Coin);
+        base.OnTriggerEnter2D(other);
     }
 }

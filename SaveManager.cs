@@ -17,7 +17,6 @@ public class SaveManager : MonoBehaviour
         public int actualDifficulty = 1;
         public int savedDifficulty = 1;
         public GameManager.SpeedStruct speedStruct;
-        public GameManager.ObstaclesStruct obstaclesStruct;
 
         //GameplayReleatedSave//
 

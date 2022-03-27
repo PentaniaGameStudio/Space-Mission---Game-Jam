@@ -11,7 +11,7 @@ public class ScoreCounter : ObjectController
     protected override void Update()
     {
         base.Update();
-        ActualScore = (-transform.position.y)*100f;
+        ActualScore = (-transform.position.y)*200f;
 
         if (transform.position.y < -100f) { Score += ActualScore; ActualScore = 0; transform.position = new Vector3(0, 0, 0); }
     }

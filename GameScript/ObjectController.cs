@@ -12,6 +12,6 @@ public abstract class ObjectController : MonoBehaviour
     protected virtual void Update()
     {
         speed = gmIns.speedStruct.speed;
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        transform.Translate(Vector3.down/3 * speed * Time.deltaTime);
     }
 }

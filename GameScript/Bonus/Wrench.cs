@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Wrench : Bonus
 {
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.gmIns.Bonus(1f, "life");
+        if (other.gameObject.tag == "Player") GameManager.gmIns.GetBonus(1f, BonusType.Life);
+        base.OnTriggerEnter2D(other);
     }
 }

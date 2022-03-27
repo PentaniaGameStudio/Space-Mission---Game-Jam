@@ -24,6 +24,7 @@ public class PlanetController : ObjectController
     [SerializeField] private SpriteRenderer planetRenderer;
     private int index = 0;
     private int[] indexCalculator;
+    public float distanceToBrake;
     private void Awake()
     {
         switch (actualPlanet)
@@ -50,23 +51,24 @@ public class PlanetController : ObjectController
     protected override void Update()
     {
         PlanetShow(distanceToTravel[indexCalculator[index]], planetSprite[indexCalculator[index]], planetToShow[indexCalculator[index]]);
+    
     }
 
     public void PlanetShow(float distance, Sprite planetSprite, planet planet)
     {
         if (actualPlanet == planet) // Si c'est la planète qu'il nous fallait atteindre alors
         {
-            float distanceToBrake = (gmIns.speedStruct.speed * 295f);
-            if (gmIns.score >= (distance - 24400f) && actualPlanet == planet) gmIns.maxSpeed = 5f; // On réduit la vitesse en amont
-            if (gmIns.score >= (distance - distanceToBrake) && actualPlanet == planet) { gmIns.speedStruct.speed = SpeedUtils.PlanetReached(gmIns.speedStruct); gmIns.planetReached = true; } //On stop net le véhicule
+            distanceToBrake = (gmIns.speedStruct.speed * 18000f * Time.deltaTime);
+            if (gmIns.score >= (distance - distanceToBrake) && actualPlanet == planet) gmIns.planetReached = true;
+             //On stop net le véhicule
         }
-        else if (gmIns.score >= (distance + 6000f)) //Sinon quand elle est dépassée on la replace en attente de réutilisation
+        else if (gmIns.score >= (distance + 20000f)) //Sinon quand elle est dépassée on la replace en attente de réutilisation
         {
             transform.position = new Vector3(0, 1.75f, -0.3f);
             index++;
         }
 
-        if (gmIns.score >= (distance - 7300f)) // Si la planète approche de la distance désirée
+        if (gmIns.score >= (distance - 9000f)) // Si la planète approche de la distance désirée
         {
             base.Update();
         }

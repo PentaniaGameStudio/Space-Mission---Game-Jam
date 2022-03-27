@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Jerrican : Bonus
 {
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.gmIns.Bonus(2f, "kero");
+        if (other.gameObject.tag == "Player") GameManager.gmIns.GetBonus(0.2f*SpaceRocket.rocketIns.bonusmultiplier, BonusType.Kerosene);
+        base.OnTriggerEnter2D(other);
     }
 }

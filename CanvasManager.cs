@@ -31,9 +31,9 @@ public class CanvasManager : MonoBehaviour
 
     private void Update()
     {
-        keroseneSlider.fillAmount = rocketIns.keroseneValue;
+        keroseneSlider.fillAmount = rocketIns.GetKero();
 
-        lifeSlider.fillAmount = SpaceRocket.rocketIns.rocketActualLife / 5;
+        lifeSlider.fillAmount = rocketIns.GetLife() / 5;
     }
 
     public void TextManager(GameManager.SpeedStruct speedStruct, float score)

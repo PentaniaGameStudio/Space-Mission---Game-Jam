@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpatioportStat : MonoBehaviour
+public class SpatioportStat
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int portLevel = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
 }
